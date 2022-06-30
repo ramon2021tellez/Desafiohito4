@@ -1,0 +1,45 @@
+<%= form_with(model: vet) do |form| %>
+  <% if vet.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(vet.errors.count, "error") %> prohibited this vet from being saved:</h2>
+
+      <ul>
+        <% vet.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 row form-control-lg">
+    <label class="col-sm-2 col-form-label">Nombre </label>
+    <div class="col-sm-10">
+    <%= form.text_field :Name %>
+  </div>
+  </div>
+
+  <div class="mb-3 row form-control-lg">
+    <label class="col-sm-2 col-form-label">Dimension </label>
+    <div class="col-sm-10">
+    <%= form.number_field :crew %>
+  </div>
+  </div>
+
+  <div class="mb-3 row form-control-lg">
+    <label class="col-sm-2 col-form-label">Fecha nacimiento </label>
+    <div class="col-sm-10">
+    <%= form.date_field :birthday %>
+  </div>
+  </div>
+
+  <div class="mb-3 row form-control-lg">
+    <label class="col-sm-2 col-form-label">tipo perro </label>
+    <div class="col-sm-10">
+    <%= form.number_field :dog_type %>
+  </div>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

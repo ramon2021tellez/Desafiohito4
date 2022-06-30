@@ -1,0 +1,37 @@
+<%= form_with(model: condition) do |form| %>
+  <% if condition.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(condition.errors.count, "error") %> prohibited this condition from being saved:</h2>
+
+      <ul>
+        <% condition.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :attendence, style: "display: block" %>
+    <%= form.number_field :attendence %>
+  </div>
+
+  <div>
+    <%= form.label :durarion, style: "display: block" %>
+    <%= form.number_field :durarion %>
+  </div>
+
+  <div>
+    <%= form.label :place, style: "display: block" %>
+    <%= form.text_field :place %>
+  </div>
+
+  <div>
+    <%= form.label :datetime, style: "display: block" %>
+    <%= form.date_field :datetime %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
